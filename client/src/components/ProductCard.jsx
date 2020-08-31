@@ -20,7 +20,7 @@ function ProductCard(props) {
                     <div className="col-md-8">
                         <div className="card-body">
                             <h5 className="card-title">{title}</h5>
-                            <p className="card-text">{currency_id + " " + price} </p>
+                            <p className="card-text">{currency_id + " $" + price} </p>
                             <p className="card-text">Estado: {condition}</p>
                             <p className="card-text">Stock: {available_quantity}</p>
                         </div>

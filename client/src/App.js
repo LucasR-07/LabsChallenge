@@ -25,7 +25,7 @@ function App() {
     <div>
       <Navbar getProductsResults={getProductsResults} />
       <div className="container bg-info shadow-lg">
-        <Catalogo products={currentProducts} />
+        <Catalogo productsResult={currentProducts} />
         <Pagination
           productsPerPage={productsPerPage}
           totalProducts={products.length}

@@ -1,9 +1,7 @@
 import React from 'react';
 
 function Pagination({ productsPerPage, totalProducts, paginate }) {
-    console.log(productsPerPage, "productos por pagina")
-    console.log(totalProducts, "productos total")
-    
+
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++){
