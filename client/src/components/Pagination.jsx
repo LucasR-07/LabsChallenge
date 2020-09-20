@@ -13,9 +13,9 @@ function Pagination({ productsPerPage, totalProducts, paginate }) {
             <ul className="pagination justify-content-center">
                 {pageNumbers && pageNumbers.map(number => (
                     <li key={number} className="page-item">
-                        <a onClick={() => paginate(number)} className="page-link">
+                        <button href="#" onClick={() => paginate(number)} className="page-link">
                             {number}
-                        </a>
+                        </button>
                     </li>
                 ))}
             </ul>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import { Container, Row, Col, Dropdown, ButtonGroup } from 'react-bootstrap';
+import './styles/Catalogo.css'
 
 function Catalogo({ productsResult }) {
 
@@ -53,12 +54,13 @@ function Catalogo({ productsResult }) {
                 <Row>
                     <Col>
                         <h3>Catalogo</h3>
+                        <hr className="divider"/>
                     </Col>
 
                     <Col md={4}>
                         <span>Ordenar por:</span>
                         <Dropdown as={ButtonGroup}>
-                            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                            <Dropdown.Toggle variant="warning" id="dropdown-basic">
                                 Precio
                         </Dropdown.Toggle>
                             <Dropdown.Menu>
@@ -68,7 +70,7 @@ function Catalogo({ productsResult }) {
                         </Dropdown>
 
                         <Dropdown as={ButtonGroup}>
-                            <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                            <Dropdown.Toggle variant="warning" id="dropdown-basic">
                                 Estado
                         </Dropdown.Toggle>
                             <Dropdown.Menu>

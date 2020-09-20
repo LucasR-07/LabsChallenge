@@ -1,0 +1,15 @@
+.text-title {
+    color: white;
+}
+
+.searchContainer hr {
+    border: 1px solid #ffc107;
+    width: 100%;
+}
+
+.searchContainer input:focus {
+    border-color:#ffc107;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px rgba(221, 218, 34, 0.6);
+    outline: 0 none;
+}
+  

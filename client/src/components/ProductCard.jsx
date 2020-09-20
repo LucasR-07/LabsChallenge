@@ -12,7 +12,7 @@ function ProductCard(props) {
 
     return (
         <div className="col mb-4 mt-4">
-            <div className="card mb-3 text-white bg-dark shadow-lg border-0" style={styleCard}>
+            <div className="card mb-3 text-warning bg-dark shadow-lg border-0" style={styleCard}>
                 <div className="row no-gutters">
                     <div className="col-md-4">
                         <img className="card-img" src={thumbnail} alt="" />
