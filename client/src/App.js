@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Catalogo from "./components/Catalogo";
-import Pagination from "./components/Pagination";
 import SearchBar from "./components/SearchBar";
 import Loading from './components/Loading'
 import "./components/styles/App.css";
