@@ -9,23 +9,10 @@ import "./components/styles/App.css";
 function App() {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(9);
 
   const getProductsResults = (productsSearch) => {
     setProducts(productsSearch);
   };
-
-  // Get current products
-  const indexOfLastProudct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProudct - productsPerPage;
-  const currentProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProudct
-  );
-
-  // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (loading) {
     return (
@@ -37,7 +24,7 @@ function App() {
         <Loading />
       </div>
     );
-  } else if (currentProducts.length > 0) {
+  } else if (products.length > 0) {
     return (
       <div>
         <Navbar
@@ -45,12 +32,8 @@ function App() {
           setLoading={setLoading}
         />
         <div className="container rounded bg-dark text-light shadow-lg">
-          <Catalogo productsResult={currentProducts} />
-          <Pagination
-            productsPerPage={productsPerPage}
-            totalProducts={products.length}
-            paginate={paginate}
-          />
+          <Catalogo productsResult={products} />
+          
         </div>
       </div>
     );

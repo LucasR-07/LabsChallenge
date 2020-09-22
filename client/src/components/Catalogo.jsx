@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
+import Pagination from "./Pagination"
 import { Container, Row, Col, Dropdown, ButtonGroup } from "react-bootstrap";
 import "./styles/Catalogo.css";
 
 function Catalogo({ productsResult }) {
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(9);
   const [actualizacion, setActualizacion] = useState(false);
 
   useEffect(() => {
@@ -14,6 +17,17 @@ function Catalogo({ productsResult }) {
   useEffect(() => {
     setActualizacion(false);
   }, [actualizacion]);
+
+  // Get current products
+  const indexOfLastProudct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProudct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProudct
+  );
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleSelectPrice = (price) => {
     if (price === "expensive") {
@@ -49,7 +63,7 @@ function Catalogo({ productsResult }) {
 
   if (products.length > 0) {
     return (
-      <div className="container mt-3 pt-1">
+      <div className="container mt-3 mb-3 pt-1 pb-2">
         <Container>
           <Row>
             <Col>
@@ -110,15 +124,20 @@ function Catalogo({ productsResult }) {
 
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           {products &&
-            products.map((product, index) => {
+            currentProducts.map((product, index) => {
               return <ProductCard key={index} product={product} />;
             })}
         </div>
+        <Pagination
+            productsPerPage={productsPerPage}
+            totalProducts={products.length}
+            paginate={paginate}
+          />
       </div>
     );
   } else {
     return (
-      <div className="container mt-3 pt-1">
+      <div className="container mt-3 pt-1 pb-2">
         <Container>
           <Row>
             <Col>
