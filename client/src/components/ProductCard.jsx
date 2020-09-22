@@ -1,21 +1,18 @@
 import React from 'react';
 
-const styleCard = {
-    maxWidth: "570px", 
-    maxHeigth: "450px",
-    minHeigth: "400px"
-}
-
 function ProductCard(props) {
 
-    const { thumbnail, title, price, currency_id, available_quantity, condition } = props.product;
+    const { thumbnail, title, price, currency_id, available_quantity, condition, permalink } = props.product;
 
     return (
         <div className="col mb-4 mt-4">
-            <div className="card mb-3 text-warning bg-dark shadow-lg border-0" style={styleCard}>
+            <div className="card mb-3 text-warning bg-dark shadow border-0" >
                 <div className="row no-gutters">
                     <div className="col-md-4">
                         <img className="card-img" src={thumbnail} alt="" />
+                        <a href={permalink} className="btn btn-outline-warning mt-5 ml-3 mb-2"  target="_blank" rel="noopener noreferrer">
+                            Ver más
+                        </a>
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">

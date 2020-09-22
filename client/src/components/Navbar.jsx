@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import "./styles/Navbar.css";
 
-function Navbar({ getProductsResults }) {
+function Navbar({ getProductsResults, setLoading}) {
   const [search, setSearch] = useState("");
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch(`http://localhost:4000/api/search?search=${search}`)
+    setLoading(true);
+    await fetch(`http://localhost:4000/api/search?search=${search}`)
       .then((res) => res.json())
       .then((resultados) => {
         getProductsResults(resultados);
+        setLoading(false)
       });
   };
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
