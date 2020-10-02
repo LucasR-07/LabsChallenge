@@ -11,10 +11,10 @@ function Navbar({ getProductsResults, setLoading}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await fetch(`http://localhost:4000/api/search?search=${search}`)
+    await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`)
       .then((res) => res.json())
       .then((resultados) => {
-        getProductsResults(resultados);
+        getProductsResults(resultados.results);
         setLoading(false)
       });
   };
@@ -23,7 +23,7 @@ function Navbar({ getProductsResults, setLoading}) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
-        <a href="/" className="navbar-brand">
+        <a href="/catalog-ml" className="navbar-brand">
           MercadoLibre Catalogo
         </a>
 

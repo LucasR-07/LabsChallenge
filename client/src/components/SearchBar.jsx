@@ -11,10 +11,10 @@ function SearchBar({ getProductsResults, setLoading }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await fetch(`http://localhost:4000/api/search?search=${search}`)
+    await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`)
       .then((res) => res.json())
       .then((resultados) => {
-        getProductsResults(resultados);
+        getProductsResults(resultados.results);
         setLoading(false)
       });
   };
